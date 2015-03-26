@@ -1,4 +1,5 @@
 <?php
+namespace kofj\tests;
 
 use kofj\BMI\BMI;
 
@@ -36,4 +37,29 @@ class BMITest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(23.9, $h171w70->get());
     }
 
+    /**
+     * Test getAgeIndex
+     *
+     * @return void
+     */
+    public function testAdvice()
+    {
+        $h171w60 = new BMI(171, 60); // BMI 20.5
+        // 肥胖
+        $this->assertEquals('obese', $h171w60->getAdvice(8, 0));
+        $this->assertEquals('obese', $h171w60->getAdvice(8, 1));
+
+        // 超重
+        $this->assertEquals('overWeight', $h171w60->getAdvice(10, 0));
+        $this->assertEquals('overWeight', $h171w60->getAdvice(10, 1));
+
+        // 正常
+        $this->assertEquals('normalRange', $h171w60->getAdvice(20, 0));
+        $this->assertEquals('normalRange', $h171w60->getAdvice(20, 1));
+
+        // 过轻
+        $h171w50 = new BMI(171, 50); // BMI 17.1
+        $this->assertEquals('underWeight', $h171w50->getAdvice(21, 0));
+        $this->assertEquals('underWeight', $h171w50->getAdvice(21, 1));
+    }
 }
