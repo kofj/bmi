@@ -38,7 +38,7 @@ class BMI
      * @var
      */
     private $standardArray = array(
-        0 => array(// 3-2 上限
+        0 => array(// 3-4 上限
             0 => array(14.2, 17.0, 18.5, null),
             1 => array(14.4, 17.6, 19.2, null),
         ),
