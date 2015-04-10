@@ -62,4 +62,14 @@ class BMITest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('underWeight', $h171w50->getAdvice(21, 0));
         $this->assertEquals('underWeight', $h171w50->getAdvice(21, 1));
     }
+
+    /**
+     * Test isFat function.
+     */
+    public function testIsFat()
+    {
+        $h171w60 = new BMI(171, 60);
+        $this->assertEquals(true, $h171w60->isFat(8, 0));
+        $this->assertEquals(false, $h171w60->isFat(20, 0));
+    }
 }

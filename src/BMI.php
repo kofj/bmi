@@ -146,4 +146,22 @@ class BMI
         }
         return $i;
     }
+
+    /**
+     * 是否肥胖
+     *
+     * @param $age,$sex
+     * @return boolean
+     */
+    public function isFat($age, $sex)
+    {
+        $this->ageIndex = $this->getAgeIndex($age);
+        $standardArray = $this->standardArray[$this->ageIndex][$sex];
+        if ($this->BMI > $standardArray[2]) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
